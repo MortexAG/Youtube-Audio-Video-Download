@@ -1,4 +1,13 @@
-customtkinter
-yt_dlp
-dotenv
-os
+altgraph==0.17.3
+Brotli==1.0.9
+certifi==2022.12.7
+mutagen==1.46.0
+pefile==2023.2.7
+pycryptodomex==3.17
+pyinstaller==5.10.1
+pyinstaller-hooks-contrib==2023.2
+pywin32-ctypes==0.2.0
+texttable==1.6.7
+tk==0.1.0
+websockets==11.0.2
+yt-dlp==2023.7.6
