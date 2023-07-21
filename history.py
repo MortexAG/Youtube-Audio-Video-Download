@@ -1,10 +1,11 @@
 import tkinter as tk
 from tkinter import *
-from tkinter import messagebox, ttk
+from tkinter import messagebox, ttk,PhotoImage
 import os
 import string
 import time
 import sqlite3
+#import main
 
 def main_app():
     db_table = "downloads"
@@ -16,13 +17,25 @@ def main_app():
     mydb = sqlite3.connect ("downloads.db")
 
     top =tk.Tk()
-    top.title("Database Table Editing Tool")
+    top.title("Download History")
     top.geometry("500x500")
+
+    ###### DOWNLOAD FROM THE LIST  #########
+
+    ## it only needs to formate the link in a right way that wouldn't remove the punctuation
+    
+    #def download_again():
+    #  for i in msg_content.curselection():
+    #        item = str(msg_content.get(i))       
+    #  global new_link
+    #  new_link = item
+    #  print(new_link)
+      #Label(top, text="Return To The Main App to Download").grid(row=7, column=2)
 
 
     def table_contents():
       newWindow = Toplevel(top)
-      newWindow.title("Users List")
+      newWindow.title("History")
 
       # The Restart Function
 
@@ -36,6 +49,7 @@ def main_app():
 
         # sets the geometry of toplevel
       newWindow.geometry("840x600")
+
 
         # The SQL To Fetch The Rows
       sql_id = "SELECT {} FROM `{}` ".format(db_table_primary, db_table)
@@ -69,6 +83,7 @@ def main_app():
       for thelist in result_id:
         id.insert(1, thelist)
         id.grid(row=1, column=0)
+      
 
        # To Get A Selected Entry In The Listbox
 
@@ -90,6 +105,7 @@ def main_app():
         delete_all = Toplevel(top)
         delete_all.title("Delete All Confirmation")
         delete_all.geometry("300x300")
+
         Button(delete_all, text="CONFIRM DELETE ALL", command=delete_all_func, activebackground="grey", activeforeground="grey", pady=10).place(relx=0.5, rely=0.5, anchor=CENTER)
         global close_confirmation
         def close_confirmation():
@@ -106,8 +122,9 @@ def main_app():
         restart()
         close_confirmation()
 
-
-
+      # download again button
+      #Button(newWindow, text="Download Again", command=download_again, activebackground="grey", activeforeground="grey").grid(row=4, column=0)
+      
       # THE DELETE ALL BUTTON
 
       Button(newWindow, text="Delete All", command=confirm_delete_all, activebackground="grey", activeforeground="grey").grid(row=4, column=0)
@@ -141,7 +158,7 @@ def main_app():
 
       msg_lb = Label(newWindow, text="{}".format(db_column3))
       msg_lb.grid(row=0, column=3)
-
+      global msg_content
       msg_content = Listbox(newWindow, height = 10, width = 25, bg = "white", activestyle = 'dotbox', font = "Helvetica", fg = "Black")
       for thelist in result_msg:
        msg_content.insert(1, thelist)

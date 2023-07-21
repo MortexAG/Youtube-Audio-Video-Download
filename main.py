@@ -1,16 +1,21 @@
 import tkinter as tk
-from tkinter import CENTER, END, Button, Entry, Label, Frame, messagebox
+from tkinter import CENTER, END, Button, Entry, Label, Frame, messagebox, PhotoImage
 import yt_dlp
 from yt_dlp import YoutubeDL
 import sqlite3
 import datetime
-import texttable
-from texttable import Texttable
 import history
 import os
 root = tk.Tk()
 root.title("Youtube Downloader")
 root.geometry("500x500")
+if os.path.exists("./icon.png"):
+    photo = PhotoImage(file = "./icon.png")
+    root.iconphoto(False, photo)
+else:
+    pass
+
+app_version = "v1.0"
 
 def clear_entry():
     inputlink.delete(0, END)
@@ -53,28 +58,7 @@ def insert_download(name, type, url):
     conn.execute(f"INSERT INTO downloads (name, type_and_time, url) VALUES ('{name}', '{type_and_time}','{url}')")
     conn.commit()
     conn.close()
-# Retrive The Downloads From The Database And Add Them To A Text File
 
-#def export_to_texttable(filename):
-#    # Connect to the database
-#    conn = sqlite3.connect('downloads.db')
-#    c = conn.cursor()
-#
-#    # Select all rows from the "downloads" table
-#    c.execute("SELECT * FROM downloads")
-#    rows = c.fetchall()
-#
-#    # Create a texttable and add the rows to it
-#    table = Texttable()
-#    table.set_deco(Texttable.HEADER)
-#    table.add_rows([['id','Download Name', 'Type', 'Time']] + rows)
-#
-#    # Write the texttable to a file
-#    with open(filename, 'w') as f:
-#        f.write(table.draw())
-#
-#    # Close the database connection
-#    conn.close()
 def download_video():
     try:
         thelink = inputlink.get()
