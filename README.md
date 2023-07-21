@@ -4,6 +4,6 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/MortexAG/Youtube-Audio-Video-Download/total)
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/MortexAG/Youtube-Audio-Video-Download/main)
 
-- The App Release Is Full And Containes All Needed Files To Run
 - A Youtube Video/Audio Downloader That Will Get The Highest Quality of The Video Or The Audio File
-- The App Saves Download History (Link/File Type/Donwload Date) in A Local Database
+- The App Containes All Needed Files To Run
+- The App Saves Download History (Link/File Type/Donwload Date) in A Local Database on Your Device
