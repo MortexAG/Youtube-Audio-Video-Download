@@ -1,0 +1,7 @@
+command :
+
+pyinstaller --noconfirm --noconsole --icon=icon.ico --name YoutubeDownloader --distpath ./Final-Build main.py history.py
+
+then copy the ffmpeg stuff and the icon.png to the same folder as the exe
+
+**** if an error happens maybe the folder isn't empty for the build to happen ****
